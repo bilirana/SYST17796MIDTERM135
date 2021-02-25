@@ -9,6 +9,7 @@ package javaapplication11;
  *
  * @author r2kar
  */
+import java.util.Scanner;
 
 public class JavaApplication11 {
 
@@ -46,13 +47,23 @@ public class JavaApplication11 {
                 break;
      }
     }
+    public static boolean isSeason(String userInput){
+        if ("FALL".equals(userInput) || "WINTER".equals(userInput) || "SPRING".equals(userInput) || "SUMMER".equals(userInput)){
+            return true;
+        } 
+        else{
+            return false;
+        }
+    }
     public static void main(String[] args) {
         // TODO code application logic here
         // try to get the input (myStr) from the user
-        String myStr= "SUMMER";
+        Scanner input = new Scanner(System.in);
+        System.out.println("What season?(ENTER IN ALL CAPS)");
+        String myStr = input.nextLine();
         JavaApplication11 test1= new JavaApplication11(Seasons.valueOf(myStr));
         test1.seasonDescription();
-        //test1.isSeason();
+        JavaApplication11.isSeason(myStr);
         int ord = Seasons.valueOf(myStr).ordinal();
         System.out.println(Seasons.valueOf(myStr).ordinal());
         //a for loop that iterated thru the Seasons Enum using values() method
